@@ -1,6 +1,8 @@
 # The Pi Hut Xmas Tree Advent Calendar
 A Python program to display an advent calendar using LEDs on The Pi Hut's 3D Xmas Tree for Raspberry Pi.
 
+![Xmas Tree](xmas-tree.jpg)
+
 ## Installation
 Run the following command on your Raspberry Pi:
 
