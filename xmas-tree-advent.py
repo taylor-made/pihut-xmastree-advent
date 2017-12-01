@@ -7,12 +7,20 @@ pinmap = { 4:1, 5:7, 6:16, 7:22, 8:6, 9:14, 10:8, 11:21, 12:15, 13:3, 14:19, 15:
 leds = LEDBoard(*range(4,28), pwm=True)
 
 def createSource(day):
+ value = True
  while True:
-  yield day <= datetime.date.today().day
+  currentDay = datetime.date.today().day
+  if day < currentDay:
+   yield True
+  elif day == currentDay:
+   yield value
+   value = not value
+  else:
+   yield False
 
 for led in leds:
  day = pinmap[led.pin.number]
  led.source = createSource(day)
- led.source_delay = 60
+ led.source_delay = 1
 
 pause()
